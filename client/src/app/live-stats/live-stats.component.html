@@ -1,0 +1,5 @@
+<div *ngIf="stats; else elseBlock">
+    <h2>Current Players</h2>
+    <p>{{ stats.TotalPlayers }}</p>
+</div>
+<ng-template #elseBlock>Current game statistics are unable to be displayed..</ng-template>
