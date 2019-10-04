@@ -12,4 +12,11 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/api/gameinfo", function(req,res) {
+        axios.get("https://games.roblox.com/v1/games?universeIds=255862868").then(function(resp) {
+            const data = resp.data.data[0];
+            res.json(data);
+        });
+    });
+
 }

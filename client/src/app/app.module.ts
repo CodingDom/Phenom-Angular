@@ -6,11 +6,14 @@ import { Ng2OdometerModule } from 'ng2-odometer';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GameRecognitionComponent } from './game-recognition/game-recognition.component';
 import { LiveStatsComponent } from './live-stats/live-stats.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    GameRecognitionComponent,
     LiveStatsComponent
   ],
   imports: [

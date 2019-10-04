@@ -1,0 +1,16 @@
+.content {
+    display: flex;
+    position: relative;
+    margin: 32px auto;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+}
+
+#plays {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    color: white;
+}

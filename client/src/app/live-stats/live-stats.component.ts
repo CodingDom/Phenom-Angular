@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { share } from 'rxjs/operators';
 import { Observable, Observer } from 'rxjs';
 import { preserveWhitespacesDefault } from '@angular/compiler';
-//import { stats } from '../products';
 
 @Component({
   selector: 'app-live-stats',
