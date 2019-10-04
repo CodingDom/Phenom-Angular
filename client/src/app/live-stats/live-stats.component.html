@@ -1,5 +1,51 @@
+<div class="container d-flex justify-content-center">
+<div class="row" style="max-width:778px;width:100%;">
 <div *ngIf="stats; else elseBlock">
-    <h2>Current Players</h2>
-    <p>{{ stats.TotalPlayers }}</p>
+    <p class="text-center"><i>Updates every minute.</i></p>
+    <div class="card-deck">
+        <div class="row">
+            <div class="card border-primary">
+                <div class="card-body">
+                <h5 class="card-title text-center">Current Players</h5>
+                <p class="card-text text-center"><ng2-odometer [number]="stats.TotalPlayers" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></p>
+                </div>
+            </div>
+            <div class="card border-primary">
+                <div class="card-body">
+                <h5 class="card-title text-center">Current Servers</h5>
+                <p class="card-text text-center"><ng2-odometer [number]="stats.GameCount" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let stat of stats.PlayerCountsArray" class="card border-primary">
+                <div class="card-body">
+                <h5 class="card-title text-center">{{ stat.device }} Players</h5>
+                <p class="card-text text-center"><ng2-odometer [number]="stat.count" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></p>
+                </div>
+            </div>
+            <!-- <div class="card border-primary">
+                <div class="card-body">
+                <h5 class="card-title text-center">Computer Players</h5>
+                <p class="card-text text-center"><ng2-odometer [number]="stats.PlayerCounts.Computer" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></p>
+                </div>
+            </div>
+            <div class="card border-primary">
+                <div class="card-body">
+                <h5 class="card-title text-center">Tablet Players</h5>
+                <p class="card-text text-center"><ng2-odometer [number]="stats.PlayerCounts.Tablet" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></p>
+                </div>
+            </div>
+            <div class="card border-primary">
+                <div class="card-body">
+                <h5 class="card-title text-center">Phone Players</h5>
+                <p class="card-text text-center"><ng2-odometer [number]="stats.PlayerCounts.Phone" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></p>
+                </div>
+            </div> -->
+        </div>
+    </div>
 </div>
-<ng-template #elseBlock>Current game statistics are unable to be displayed..</ng-template>
+<ng-template #elseBlock>Current gathering game statistics..</ng-template>
+</div>
+</div>
+

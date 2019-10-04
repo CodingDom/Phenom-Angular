@@ -1,0 +1,14 @@
+.row {
+    max-width: 778px;
+    width: 100%;
+    position: relative;
+}
+
+.card-deck {
+    width: 100%;
+    margin: 0;
+}
+
+.card-deck .row {
+    margin: 5px 0;
+}
