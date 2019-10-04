@@ -2,9 +2,27 @@
     <div *ngFor="let server of servers" class="card">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-        <h5 class="card-title">Card title that wraps to a new line</h5>
-        <p class="card-text"></p>
-        <p class="card-text"><small class="text-muted">{{ server.PlayerCount }}/{{ server.MaxPlayers }} Players</small></p>
+        <h5 class="card-title">{{ server.AwayName }} vs {{ server.HomeName }}</h5>
+        <p class="card-text">{{ server.Quarter }} Quarter <ng2-odometer [number]="server.Time/60" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer>:<ng2-odometer *ngIf="server.Time%60 < 10" [number]="0" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer><ng2-odometer [number]="server.Time%60" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></p>
+        <p class="card-text"><small class="text-muted float-left">{{ server.PlayerCount }}/{{ server.MaxPlayers }} Players</small><small class="text-muted float-right">Id: {{server.Id}}</small></p>
         </div>
     </div>
 </div>
+
+<!-- { MaxPlayers: 8,
+    [0]     AwayScore: 17,
+    [0]     JobId: '8aa9eec2-bb13-4c66-bc88-2a64ca9b6d68',
+    [0]     HomeTeam: 'rbxassetid://3345116604',
+    [0]     AwayName: 'Denver',
+    [0]     Time: 118,
+    [0]     HomeName: 'Toronto',
+    [0]     HomeColor: 'Black',
+    [0]     AwayColor: 'Dark blue',
+    [0]     Quarter: '1st',
+    [0]     PlaceId: 3323729375,
+    [0]     HomeScore: 10,
+    [0]     PlayerCount: 8,
+    [0]     AwayTeam: 'rbxassetid://3345116604',
+    [0]     LastUpdate: 1570224746.059,
+    [0]     Type: 'Public',
+    [0]     Id: '8aa9eec2-bb13-4c66-bc88-2a64ca9b6d68' }, -->
