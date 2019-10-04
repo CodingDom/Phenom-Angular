@@ -1,9 +1,15 @@
 <div class="card-columns">
     <div *ngFor="let server of servers" class="card">
-        <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-        <h5 class="card-title">{{ server.AwayName }} vs {{ server.HomeName }}</h5>
-        <p class="card-text">{{ server.Quarter }} Quarter <ng2-odometer [number]="server.Time/60" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer>:<ng2-odometer *ngIf="server.Time%60 < 10" [number]="0" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer><ng2-odometer [number]="server.Time%60" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></p>
+        <div style="width:50%;display:inline-block">
+        <img src="{{ server.AwayLogo }}" width="100%">
+        <h5 class="card-title text-center">{{ server.AwayName }}</h5>
+        </div>
+        <div style="width:50%;display:inline-block">
+        <img src="{{ server.HomeLogo }}" width="100%">
+        <h5 class="card-title text-center">{{ server.HomeName }}</h5>
+        </div>
+        <p class="card-text text-center">Quarter: {{ server.Quarter }}  |  Time: {{server.Time/60 | number:'1.0-0'}}:<span *ngIf="server.Time%60 < 10">0</span>{{ server.Time%60 }}</p>
         <p class="card-text"><small class="text-muted float-left">{{ server.PlayerCount }}/{{ server.MaxPlayers }} Players</small><small class="text-muted float-right">Id: {{server.Id}}</small></p>
         </div>
     </div>
