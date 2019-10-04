@@ -18,11 +18,6 @@ if (process.env.NODE_ENV === "production") {
 // Define any API routes
 require("./routes/apiRoutes")(app);
 
-app.post("/api/test", function(req, res) {
-  console.log(req.body);
-  res.status(200);
-});
-
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
