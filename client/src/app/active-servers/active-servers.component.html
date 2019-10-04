@@ -1,0 +1,10 @@
+<div class="card-columns">
+    <div *ngFor="let server of servers" class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">Card title that wraps to a new line</h5>
+        <p class="card-text"></p>
+        <p class="card-text"><small class="text-muted">{{ server.PlayerCount }}/{{ server.MaxPlayers }} Players</small></p>
+        </div>
+    </div>
+</div>

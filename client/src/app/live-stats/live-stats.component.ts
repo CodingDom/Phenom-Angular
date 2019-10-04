@@ -19,7 +19,7 @@ export class LiveStatsComponent implements OnInit {
     }
     
     getStats() {
-      let obs = this.http.get("/api/test");
+      let obs = this.http.get("/api/livestats");
       obs.subscribe(resp => { 
           const plrCounts = resp["PlayerCounts"];
           const devices = Object.keys(plrCounts);

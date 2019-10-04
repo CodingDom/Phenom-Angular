@@ -8,13 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameRecognitionComponent } from './game-recognition/game-recognition.component';
 import { LiveStatsComponent } from './live-stats/live-stats.component';
+import { ActiveServersComponent } from './active-servers/active-servers.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GameRecognitionComponent,
-    LiveStatsComponent
+    LiveStatsComponent,
+    ActiveServersComponent
   ],
   imports: [
     BrowserModule,
