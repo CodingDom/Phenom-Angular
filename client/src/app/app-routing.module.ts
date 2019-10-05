@@ -6,9 +6,9 @@ import { GameRecognitionComponent } from './game-recognition/game-recognition.co
 import { ActiveServersComponent } from './active-servers/active-servers.component';
 
 const routes: Routes = [
-  { path: '', component: GameRecognitionComponent },
+  { path: '', component: GameRecognitionComponent, data: {animation: 'HomePage'} },
   { path: '', component: LiveStatsComponent, outlet:'secondary', pathMatch: "full" },
-  {path: 'servers', component: ActiveServersComponent}
+  {path: 'servers', component: ActiveServersComponent, data: {animation: 'ServersPage'}}
 ];
 
 @NgModule({

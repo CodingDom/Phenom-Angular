@@ -1,0 +1,16 @@
+.card-holder {
+    min-width: 33%;
+}
+
+@media (min-width: 768px) {
+    .card-holder {
+        max-width: 50%;
+        margin: 10px 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-holder {
+        max-width: 33%;
+    }
+}

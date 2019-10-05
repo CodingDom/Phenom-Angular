@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { preserveWhitespacesDefault } from '@angular/compiler';
 
@@ -13,11 +13,12 @@ import { TouchSequence } from 'selenium-webdriver';
   styleUrls: ['./active-servers.component.css']
 })
 
-export class ActiveServersComponent implements OnInit {
+export class ActiveServersComponent implements OnInit,OnDestroy {
     serverType: string;
     servers: any;
     debounce: boolean;
     cached: boolean;
+    interval: any;
 
     constructor(private http: HttpClient, private toastr: ToastrService) {
     }
@@ -59,10 +60,13 @@ export class ActiveServersComponent implements OnInit {
                   if (resp[i].AwayName !== server["AwayName"]) {
                     server["AwayLogo"] = `https://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teams[resp[i].AwayName]}.png`;
                   }
-
+                  
                   Object.keys(resp[i]).forEach(key => {
                     server[key] = resp[i][key];
                   });
+
+                  server["Minutes"] = Math.floor(server["Time"]/60);
+                  server["Seconds"] = Math.floor(server["Time"]%60);
                   notFound = false;
                   break;
                 }
@@ -109,6 +113,10 @@ export class ActiveServersComponent implements OnInit {
 
     ngOnInit() {
         this.getServers();
-        setInterval(() => {this.getServers()},500);
+        this.interval = setInterval(() => {this.getServers()},500);
+    }
+
+    ngOnDestroy() {
+      clearInterval(this.interval);
     }
 }

@@ -1,7 +1,7 @@
 .content {
     display: flex;
     position: relative;
-    margin: 32px auto;
+    margin: 14px auto;
     padding: 0 16px;
     max-width: 960px;
     flex-direction: column;

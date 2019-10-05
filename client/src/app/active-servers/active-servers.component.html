@@ -20,9 +20,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card-deck">
-                <!-- <div > -->
-                <!-- <div *ngIf="server.Type == serverType || serverType == 'All'" class="card"> -->
-                        <div *ngFor="let server of servers" class="card" style="min-width: 30%;">
+                <ng-container *ngFor="let server of servers">
+                <div *ngIf="server.Type == serverType || serverType == 'All'"style="position: relative;" class="card-holder">
+                <div class="card">
                     <div class="card-body text-center">
                     <div style="width:30%;display:inline-block;position: relative;">
                     <img src="{{ server.AwayLogo }}" width="80%">
@@ -40,9 +40,10 @@
                     </div>
                 </div>
                 </div>
+                </ng-container>
             </div>
         </div>
-    <!-- </div> -->
+    </div>
 </div>
 <!-- { MaxPlayers: 8,
     [0]     AwayScore: 17,

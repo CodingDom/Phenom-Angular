@@ -41,3 +41,7 @@ p {
 .toolbar #roblox-logo:hover {
     opacity: 0.8;
 }
+
+main {
+    position: relative;
+}

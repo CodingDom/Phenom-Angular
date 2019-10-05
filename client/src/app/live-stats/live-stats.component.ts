@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { share } from 'rxjs/operators';
 import { Observable, Observer } from 'rxjs';
@@ -9,9 +9,9 @@ import { preserveWhitespacesDefault } from '@angular/compiler';
   templateUrl: './live-stats.component.html',
   styleUrls: ['./live-stats.component.css']
 })
-export class LiveStatsComponent implements OnInit {
+export class LiveStatsComponent implements OnInit,OnDestroy {
+    interval: any;
     stats: any;
-    public number: number = 3000;
     public observable: Observable<boolean>;
     private observer: Observer<boolean>;
 
@@ -38,6 +38,10 @@ export class LiveStatsComponent implements OnInit {
     ngOnInit() {
         this.getStats();
         this.observable = new Observable<boolean>((observer: any) => this.observer = observer).pipe(share());
-        setInterval(() => {this.getStats();},60000);
+        this.interval = setInterval(() => {this.getStats();},60000);
+    }
+
+    ngOnDestroy() {
+        clearInterval(this.interval);
     }
 }
