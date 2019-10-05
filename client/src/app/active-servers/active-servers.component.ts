@@ -79,7 +79,9 @@ export class ActiveServersComponent implements OnInit {
                 this.servers.push({
                   ...server,
                   AwayLogo: `https://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teams[server.AwayName]}.png`,
-                  HomeLogo: `https://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teams[server.HomeName]}.png`
+                  HomeLogo: `https://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teams[server.HomeName]}.png`,
+                  Minutes: Math.floor(server["Time"]/60),
+                  Seconds: Math.floor(server["Time"]%60)
                 });
                 this.toastr.info(`A ${server["Type"]} Server has just been added`,'Server Added',{positionClass: "toast-bottom-right"});
               }
@@ -90,7 +92,9 @@ export class ActiveServersComponent implements OnInit {
             resp = resp.map(server => {
               const obj = {...server,
                 AwayLogo: `https://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teams[server.AwayName]}.png`,
-                HomeLogo: `https://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teams[server.HomeName]}.png`
+                HomeLogo: `https://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teams[server.HomeName]}.png`,
+                Minutes: Math.floor(server["Time"]/60),
+                Seconds: Math.floor(server["Time"]%60)
               };
               return obj;
             });

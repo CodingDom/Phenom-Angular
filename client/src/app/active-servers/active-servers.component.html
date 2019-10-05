@@ -1,7 +1,8 @@
 <div class="container-fluid">
     <div class="row" style="margin:10px 0;">
-        <div class="col-12">
-            <h4 style="display:inline;">Select A Server Type: </h4><div class="dropdown" style="display: inline;">
+        <div class="col-6 col-md-6 text-center">
+            <h4 style="display:inline;">Server Type: </h4>
+            <div class="dropdown" style="display: inline;">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-type="All" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     All Servers
                 </a>
@@ -11,6 +12,9 @@
                     <button class="dropdown-item" (click)="updateList($event)" data-type="Mobile">Mobile Servers</button>
                 </div>
             </div>
+        </div>
+        <div class="col-6 col-md-6 text-center">
+            <a routerLink="/" routerLinkActive="active" class="btn btn-primary">Back to Live Stats</a>
         </div>
     </div>
     <div class="row">
@@ -31,7 +35,7 @@
                     <h5 class="card-title text-center">{{ server.HomeName }}</h5>
                     <h5 class="text-center"><ng2-odometer [number]="server.HomeScore" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></h5>
                     </div>
-                    <p class="card-text text-center">{{ server.Quarter }} <span *ngIf="server.Quarter.length == 3">Quarter</span>  |  Time: {{server.Time/60 | number:'1.0-0'}}:<span *ngIf="server.Time%60 < 10">0</span>{{ server.Time%60 }}</p>
+                    <p class="card-text text-center">{{ server.Quarter }} <span *ngIf="server.Quarter.length == 3">Quarter</span>  |  Time: {{server.Minutes}}:<span *ngIf="server.Seconds < 10">0</span>{{ server.Seconds }}</p>
                     <p class="card-text"><small class="text-muted float-left">{{ server.PlayerCount }}/{{ server.MaxPlayers }} Players</small><small class="text-muted float-right">Id: {{server.Id}}</small></p>
                     </div>
                 </div>
