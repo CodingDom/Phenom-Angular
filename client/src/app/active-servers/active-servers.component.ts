@@ -19,6 +19,21 @@ export class ActiveServersComponent implements OnInit {
     constructor(private http: HttpClient) {
     }
     
+    updateList(event: Event) {
+      const btn = (event.target as HTMLElement);
+      const btnText = btn.innerText;
+      const parentBtn = (document.querySelector(".dropdown-toggle") as HTMLElement);
+      const parentText = parentBtn.innerText;
+      const parentAttr = parentBtn.getAttribute("data-type");
+
+      this.serverType = btn.getAttribute("data-type");
+      btn.innerText = parentText;
+      parentBtn.innerText = btnText;
+
+      btn.setAttribute("data-type",parentAttr);
+      parentBtn.setAttribute("data-type",this.serverType);
+    }
+
     getServers() {
       let obs = this.http.get("/api/servers");
       obs.subscribe((resp: any[]) => { 
@@ -57,6 +72,7 @@ export class ActiveServersComponent implements OnInit {
 
             this.servers = resp;
             this.cached = true;
+            this.serverType = "All";
           }
           this.debounce = false;
         });

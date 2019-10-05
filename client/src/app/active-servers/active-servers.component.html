@@ -1,23 +1,44 @@
-<div class="card-columns">
-    <div *ngFor="let server of servers" class="card">
-        <div class="card-body text-center">
-        <div style="width:50%;display:inline-block;position: relative;">
-        <img src="{{ server.AwayLogo }}" width="80%">
-        <h5 class="card-title text-center">{{ server.AwayName }}</h5>
-        <h5 class="text-center"><ng2-odometer [number]="server.AwayScore" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></h5>
+<div class="container-fluid">
+    <div class="row" style="margin:10px 0;">
+        <div class="col-12">
+            <h4 style="display:inline;">Select A Server Type: </h4><div class="dropdown" style="display: inline;">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-type="All" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    All Servers
+                </a>
+                
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <button class="dropdown-item" (click)="updateList($event)" data-type="Public">Public Servers</button>
+                    <button class="dropdown-item" (click)="updateList($event)" data-type="Mobile">Mobile Servers</button>
+                </div>
+            </div>
         </div>
-        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Versus_icon.png" width="25%" style="position:absolute;left:38.5%;top:65%;"> -->
-        <div style="width:50%;display:inline-block">
-        <img src="{{ server.HomeLogo }}" width="80%">
-        <h5 class="card-title text-center">{{ server.HomeName }}</h5>
-        <h5 class="text-center"><ng2-odometer [number]="server.HomeScore" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></h5>
-        </div>
-        <p class="card-text text-center">Quarter: {{ server.Quarter }}  |  Time: {{server.Time/60 | number:'1.0-0'}}:<span *ngIf="server.Time%60 < 10">0</span>{{ server.Time%60 }}</p>
-        <p class="card-text"><small class="text-muted float-left">{{ server.PlayerCount }}/{{ server.MaxPlayers }} Players</small><small class="text-muted float-right">Id: {{server.Id}}</small></p>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card-columns">
+                <div *ngFor="let server of servers">
+                <div *ngIf="server.Type == serverType || serverType == 'All'" class="card">
+                    <div class="card-body text-center">
+                    <div style="width:50%;display:inline-block;position: relative;">
+                    <img src="{{ server.AwayLogo }}" width="80%">
+                    <h5 class="card-title text-center">{{ server.AwayName }}</h5>
+                    <h5 class="text-center"><ng2-odometer [number]="server.AwayScore" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></h5>
+                    </div>
+                    <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Versus_icon.png" width="25%" style="position:absolute;left:38.5%;top:65%;"> -->
+                    <div style="width:50%;display:inline-block">
+                    <img src="{{ server.HomeLogo }}" width="80%">
+                    <h5 class="card-title text-center">{{ server.HomeName }}</h5>
+                    <h5 class="text-center"><ng2-odometer [number]="server.HomeScore" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></h5>
+                    </div>
+                    <p class="card-text text-center">Quarter: {{ server.Quarter }}  |  Time: {{server.Time/60 | number:'1.0-0'}}:<span *ngIf="server.Time%60 < 10">0</span>{{ server.Time%60 }}</p>
+                    <p class="card-text"><small class="text-muted float-left">{{ server.PlayerCount }}/{{ server.MaxPlayers }} Players</small><small class="text-muted float-right">Id: {{server.Id}}</small></p>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 <!-- { MaxPlayers: 8,
     [0]     AwayScore: 17,
     [0]     JobId: '8aa9eec2-bb13-4c66-bc88-2a64ca9b6d68',
