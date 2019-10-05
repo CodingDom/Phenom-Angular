@@ -60,7 +60,7 @@
     "@angular/compiler-cli": "~8.2.9"
   },
   "engines": {
-    "node": "^6.11.0",
+    "node": "^10.9.0",
     "npm": "^3.10.10"
   }
 }
