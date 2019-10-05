@@ -10,6 +10,10 @@ import { GameRecognitionComponent } from './game-recognition/game-recognition.co
 import { LiveStatsComponent } from './live-stats/live-stats.component';
 import { ActiveServersComponent } from './active-servers/active-servers.component';
 
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,9 +24,11 @@ import { ActiveServersComponent } from './active-servers/active-servers.componen
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    Ng2OdometerModule.forRoot()
+    Ng2OdometerModule.forRoot(),
+    ToastrModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]
