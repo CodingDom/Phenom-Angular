@@ -11,16 +11,11 @@ app.use(function(req, res, next) {
 });
 
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("/dist"));
-}
+const distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 
 // Define any API routes
 require("./routes/apiRoutes")(app);
-
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./dist/index.html"));
-});
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
