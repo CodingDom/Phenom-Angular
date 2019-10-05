@@ -1,13 +1,16 @@
 <div class="card-columns">
     <div *ngFor="let server of servers" class="card">
-        <div class="card-body">
-        <div style="width:50%;display:inline-block">
-        <img src="{{ server.AwayLogo }}" width="100%">
+        <div class="card-body text-center">
+        <div style="width:50%;display:inline-block;position: relative;">
+        <img src="{{ server.AwayLogo }}" width="80%">
         <h5 class="card-title text-center">{{ server.AwayName }}</h5>
+        <h5 class="text-center"><ng2-odometer [number]="server.AwayScore" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></h5>
         </div>
+        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Versus_icon.png" width="25%" style="position:absolute;left:38.5%;top:65%;"> -->
         <div style="width:50%;display:inline-block">
-        <img src="{{ server.HomeLogo }}" width="100%">
+        <img src="{{ server.HomeLogo }}" width="80%">
         <h5 class="card-title text-center">{{ server.HomeName }}</h5>
+        <h5 class="text-center"><ng2-odometer [number]="server.HomeScore" [config]="{ auto: true }" [observable]="observable" [theme]="'default'"></ng2-odometer></h5>
         </div>
         <p class="card-text text-center">Quarter: {{ server.Quarter }}  |  Time: {{server.Time/60 | number:'1.0-0'}}:<span *ngIf="server.Time%60 < 10">0</span>{{ server.Time%60 }}</p>
         <p class="card-text"><small class="text-muted float-left">{{ server.PlayerCount }}/{{ server.MaxPlayers }} Players</small><small class="text-muted float-right">Id: {{server.Id}}</small></p>

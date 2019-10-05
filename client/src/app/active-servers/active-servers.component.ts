@@ -11,6 +11,7 @@ import { teams } from "../logos";
 })
 
 export class ActiveServersComponent implements OnInit {
+    serverType: string;
     servers: any;
     debounce: boolean;
     cached: boolean;
@@ -28,8 +29,19 @@ export class ActiveServersComponent implements OnInit {
           if (this.cached) {
             this.servers.forEach((server: Object) => {
               for (let i = 0; i < resp.length; i++) {
-                if (resp[i].Id == server["Id"]) {
-                  server["Time"] = resp[i].Time;
+                if (resp[i].Id === server["Id"]) {
+                  if (resp[i].HomeName !== server["HomeName"] ) {
+                    server["HomeLogo"] = `https://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teams[resp[i].HomeName]}.png`;
+                  }
+
+                  if (resp[i].AwayName !== server["AwayName"]) {
+                    server["AwayLogo"] = `https://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/${teams[resp[i].AwayName]}.png`;
+                  }
+
+                  Object.keys(resp[i]).forEach(key => {
+                    server[key] = resp[i][key];
+                  });
+                  break;
                 }
               }
             })
@@ -52,6 +64,6 @@ export class ActiveServersComponent implements OnInit {
 
     ngOnInit() {
         this.getServers();
-        // setInterval(() => {this.getServers()},1000);
+        setInterval(() => {this.getServers()},500);
     }
 }
