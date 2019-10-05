@@ -12,14 +12,14 @@ app.use(function(req, res, next) {
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("dist/"));
+  app.use(express.static("client/src"));
 }
 
 // Define any API routes
 require("./routes/apiRoutes")(app);
 
 app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./dist/index.html"));
+  res.sendFile(path.join(__dirname, "./client/src/index.html"));
 });
 
 app.listen(PORT, function() {
