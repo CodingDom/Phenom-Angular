@@ -11,7 +11,7 @@
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "npm build"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.8",
@@ -61,6 +61,6 @@
   },
   "engines": {
     "node": "^10.9.0",
-    "npm": "^3.10.10"
+    "npm": "^6.10.10"
   }
 }
