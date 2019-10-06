@@ -45,3 +45,8 @@ p {
 main {
     position: relative;
 }
+
+#spinner {
+    height: calc(100% - 60px);
+    top: 60px;
+}

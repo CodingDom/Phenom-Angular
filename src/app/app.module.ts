@@ -12,8 +12,9 @@ import { ActiveServersComponent } from './active-servers/active-servers.componen
 
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
+
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxSpinnerModule,
     Ng2OdometerModule.forRoot(),
     ToastrModule.forRoot() 
   ],

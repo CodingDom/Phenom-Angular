@@ -5,6 +5,7 @@ import { preserveWhitespacesDefault } from '@angular/compiler';
 import { teams } from "../logos";
 import { $ } from 'protractor';
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from "ngx-spinner";
 import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
@@ -20,7 +21,7 @@ export class ActiveServersComponent implements OnInit,OnDestroy {
     cached: boolean;
     interval: any;
 
-    constructor(private http: HttpClient, private toastr: ToastrService) {
+    constructor(private http: HttpClient, private toastr: ToastrService, private spinner: NgxSpinnerService) {
     }
     
     updateList(event: Event) {
@@ -106,12 +107,14 @@ export class ActiveServersComponent implements OnInit,OnDestroy {
             this.servers = resp;
             this.cached = true;
             this.serverType = "All";
+            setTimeout(() => {this.spinner.hide()},1000);
           }
           this.debounce = false;
         });
     }
 
     ngOnInit() {
+        this.spinner.show();
         this.getServers();
         this.interval = setInterval(() => {this.getServers()},500);
     }
