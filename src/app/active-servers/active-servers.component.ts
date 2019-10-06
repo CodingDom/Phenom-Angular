@@ -107,7 +107,7 @@ export class ActiveServersComponent implements OnInit,OnDestroy {
             this.servers = resp;
             this.cached = true;
             this.serverType = "All";
-            setTimeout(() => {this.spinner.hide()},1000);
+            setTimeout(() => {this.spinner.hide()},1500);
           }
           this.debounce = false;
         });
