@@ -13,8 +13,9 @@ It grabs various feed and statistics from my game such as:
   - Time Remaining
   - Amount Players Actively Playing
 
-<b><i>Live Link:</i></b> <a href="https://phenom-stats.herokuapp.com/">https://phenom-stats.herokuapp.com/</a>
-<b><i>Game Link:</i></b> <a href="https://www.roblox.com/games/623694595">https://www.roblox.com/games/623694595</a>
+<b><i>Phenom Statistics Link:</i></b> <a href="https://phenom-stats.herokuapp.com/">https://phenom-stats.herokuapp.com/</a>
+
+<b><i>Online Game Link:</i></b> <a href="https://www.roblox.com/games/623694595">https://www.roblox.com/games/623694595</a>
 
 ## Preview
 
