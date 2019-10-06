@@ -1,27 +1,26 @@
-# PhenomAngular
+# Phenom Statistics
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+An angular web application, made for keeping track of my online basketball game's live statistics.
 
-## Development server
+It grabs various feed and statistics from my game such as:
+- Amount of People Playing
+- Amount of Running Game Servers
+- Amount of Devices Being Used
+- Individual Game Statistics
+  - Score
+  - Teams Playing
+  - Quarter
+  - Time Remaining
+  - Amount Players Actively Playing
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<b><i>Live Link:</i></b> <a href="https://phenom-stats.herokuapp.com/">https://phenom-stats.herokuapp.com/</a>
+<b><i>Game Link:</i></b> <a href="https://www.roblox.com/games/623694595">https://www.roblox.com/games/623694595</a>
 
-## Code scaffolding
+## Preview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<img src="https://i.gyazo.com/8644b82b1164eb79de8e90f68473179b.gif" alt="Gameplay Preview" width="100%"/>
 
-## Build
+## Technologies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<img align="middle" src="https://i.imgur.com/hoqTpFD.png" alt="HTML5" width="25%"/>&nbsp; &nbsp;<img align="middle" src="http://2ality.com/2011/10/logo-js/js.jpg" alt="JavaScript" width="10%"/>&nbsp; &nbsp;<img align="middle" src="https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png" alt="TypeScript" width="10%"/>&nbsp; &nbsp;<img src="https://cdn.worldvectorlogo.com/logos/angular-3.svg" align="middle" width="20%"/>&nbsp; &nbsp;<img align="middle" src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png" width="15%"/>
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
