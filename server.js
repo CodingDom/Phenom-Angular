@@ -17,6 +17,10 @@ app.use(express.static(distDir));
 // Define any API routes
 require("./routes/apiRoutes")(app);
 
+app.get('*', function(req, res) {
+  res.sendfile('./dist/index.html');
+});
+
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
   console.log(process.env.IMGUR_CLIENT_ID);
