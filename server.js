@@ -18,7 +18,7 @@ app.use(express.static(distDir));
 require("./routes/apiRoutes")(app);
 
 app.get('*', function(req, res) {
-  res.sendfile('./dist/index.html');
+  res.sendFile('./dist/index.html');
 });
 
 app.listen(PORT, function() {
